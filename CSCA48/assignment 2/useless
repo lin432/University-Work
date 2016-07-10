@@ -1,0 +1,104 @@
+def is_regex(s):
+    '''(string) -> boolean
+    takes a string and determines if it is a valid regex expression
+
+    Ex.
+    >>>is_regex('e')
+    True
+    >>>is_regex('(e*)|(2|1|0)')
+    True
+    >>>is_regex('.e|e*|5')
+    False'''
+    ret = True
+    end = len(s)
+    # counter for the number of brackets we need
+    # if the number is 0 then we know that there is an imbalance
+    bracket_counter = 0
+
+    # loops through all of the string
+    for i in range(index, end):
+        # grabs value to check so we aren't constantly calling
+        val = s[i]
+
+        # checks for non-value cases first
+        if(val == '('):
+            # found start of a bracket so we add one to counter
+            bracket_counter = bracket_counter + 1
+
+        elif(val == '*'):
+            # found a star so we use method to check for a proper value
+            if(not _is_unary(s, i)):
+                ret = False
+
+        elif(val == '.' or val == '|'):
+            # found a binary so we use a method to check for both sides
+            # being proper values
+            if(not _is_binary(s, i, end)):
+                ret = False
+
+        elif(val == ')'):
+            # subtracts from bracket_counter
+            bracket_counter = bracket_counter - 1
+
+        elif(not _is_value(s, i, end)):
+            # not non-value so checks if it's a regular value
+            ret = False
+
+    if(bracket_counter != 0):
+        # checks to see all brackets have pairs
+        ret = False
+    return ret
+
+def _is_value(s, i, end):
+    '''(String, int, int) -> Boolean
+    helper method that takes a string and checks for values
+    and sees if the value at the index is a valid regex value
+
+    Ex.
+
+    '''
+    ret = False
+    # checks current value in expected values
+    if(s[index] in {'0','1','2','e'}):
+        # checks we aren't going past list
+        if((index + 1) < end):
+            # checks next value isn't another value
+            if(s[index + 1] not in {'0','1','2','e'}):
+                ret = True
+        else:
+            ret = True
+    return ret
+
+def _is_unary(s, index):
+    '''(String, int. int) -> boolean
+    helper method that checks if value is a valid regex star
+
+    Ex.
+
+    '''
+    ret = False:
+        # checks that we can go backwards
+        if(index > 0):
+            val = s[index - 1]
+            # makes sure a value is behind it
+            if(val in {'0','1','2','e', ')'}):
+                ret = True
+    return ret
+
+def _is_binary(s, index, end):# figure out in respects to new format of check
+    '''(String, int, int) -> Boolean
+    helper method that takes a string and chscks for values
+    and sees if the value at the index is part of a valid binary regex
+    expression
+
+    Ex.
+
+    '''
+    ret = False
+    if(index > 0 and end > 2):
+        l_val = s[index - 1]
+        r_val = s[index + 1]
+        if(l_val in {'0','1','2','e', ')'} and
+           r_val in {'0','1','2','e', '('}):
+            ret = True
+    return ret
