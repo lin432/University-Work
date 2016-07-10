@@ -1,0 +1,8 @@
+987654322  Xu  Carolyn  LEC01   19.5
+233432555    Jones  Billy Andrew	  LEC01   16.0
+555432345	 Patel  Amrit                 LEC01   13.5
+888332441    Fletcher Bobby LEC02   18
+777998713   Van Ryan  Sarah Jane         LEC01   20 
+877633234    Zhang  Peter             LEC30   9.5
+543444555    Martin  Joseph           LEC30   15    
+876543222    Abdolhosseini  Mohammad Mazen 	LEC02 18.5

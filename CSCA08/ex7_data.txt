@@ -1,0 +1,6 @@
+asmith Alice Smith 31 F alice.smith@utsc.utoronto.ca
+bharrington Brian Harrington 33 M brian.harrington@utsc.utoronto.ca
+rford Rob Ford 44 M robford@crackshack.com
+ncheng Nick Cheng 17 M nick@utsc.utoronto.ca
+cmangler Code Mangler 103 F cm@mangler.net
+ajones Alice Jones 44 F alice@alicejones.net
